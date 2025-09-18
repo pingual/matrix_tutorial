@@ -1,0 +1,32 @@
+ 
+name: "Cronjob"<br>
+on:<br>
+  schedule:<br>
+    - cron: '15 * * * *'<br>
+
+jobs:<br>
+  update-weather:<br>
+    permissions: write-all<br>
+    runs-on: ubuntu-latest<br>
+    steps:<br>
+      - uses: actions/checkout@v3<br>
+      - name: Generate README<br>
+        uses: Shubham-Sharma-Innostax/weather@v1.0.0<br>
+        with:<br>
+          city: Paris<br>
+          days: 7<br>
+          weather-api-key: ${{ secrets.WEATHER_API_KEY }}<br>
+          template-file: 'README.md.template'<br>
+          out-file: 'README.md'<br>
+      - name: Commit<br>
+        run: |<br>
+          if git diff --exit-code; then<br>
+            echo "No changes to commit."<br>
+            exit 0<br>
+          else<br>
+            git config user.name github-actions<br>
+            git config user.email github-actions@github.com<br>
+            git add .<br>
+            git commit -m "update"<br>
+            git push origin main<br>
+          fi<br>
