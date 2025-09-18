@@ -23,5 +23,6 @@ matrix matrix_scalar(matrix m, scalar lambda);
 matrix matrix_power(matrix m, int n);
 matrix matrix_copy(matrix m);
 matrix matrix_inv(matrix m);
+scalar matrix_det(matrix m);
 
 #endif /* MATRIX_H */

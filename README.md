@@ -36,3 +36,6 @@ Copies the matrix m into a new matrix (so that the changes on m don't impact the
 
 ### matrix matrix_inv(matrix m)
 If it exists, returns the inverse of the matrix.
+
+### scalar matrix_det(matrix m)
+Returns the determinant from the matrix m.
