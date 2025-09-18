@@ -1,16 +1,16 @@
-            - name: Update Weather
+            - name: Weather - Profile README
   # You may pin to the exact commit or the version.
-  # uses: huantt/weather-forecast@530507bd2e7a4a575309d382e103a5232b46f092
-  uses: huantt/weather-forecast@v1.0.6
+  # uses: bumb7ebee/weather-profile-actions@8362a51bb5d17260b67716f33a5cf7c5d3cfc1cc
+  uses: bumb7ebee/weather-profile-actions@1.0.0
   with:
-    # City
-    city: Paris
-    # Days of forecast
-    days: # optional, default is 7
-    # https://weatherapi.com API key. Get one for free at https://www.weatherapi.com
+    # OpenWeather API key
     weather-api-key: 63b026fea2cd419f822135108251809
-    # Template file path
-    template-file: READ.me.template
-    # Output file path
-    out-file: 
+    # City ID obtained from OpenWeather
+    city-id: 2988507
+    # Centigrade (c) or Fahrenheit (f)
+    units: # optional, default is c
+    # Country code obtained from https://flagicons.lipis.dev/
+    country-code: fr
+    # README.md file path
+    readme-path: # optional, default is README.md
           
