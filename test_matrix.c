@@ -87,6 +87,7 @@ UTEST(matrix_scalar, simple) {
     }
   }
 }
+
 UTEST(matrix_power, simple) {
   matrix m1 = matrix_create(2, 2, 2.);
   matrix m2 = matrix_power(m1, 2);
@@ -95,6 +96,20 @@ UTEST(matrix_power, simple) {
       ASSERT_TRUE(*matrix_get(m2, i, j) == 8.);
     }
   }
+}
+
+UTEST(matrix_det, simple) {
+  matrix m = matrix_create(3, 3, 0.);
+  *matrix_get(m, 0, 0) = 1.;
+  *matrix_get(m, 0, 1) = 1.;
+  *matrix_get(m, 0, 2) = 1.;
+  *matrix_get(m, 1, 0) = 1.;
+  *matrix_get(m, 1, 1) = 2.;
+  *matrix_get(m, 1, 2) = 3.;
+  *matrix_get(m, 2, 0) = 3.;
+  *matrix_get(m, 2, 1) = 4.;
+  *matrix_get(m, 2, 2) = 6.;
+  ASSERT_NEAR(1., matrix_det(m), 0.00001);
 }
 
 
