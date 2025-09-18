@@ -211,3 +211,31 @@ matrix matrix_inv(matrix m) {
     matrix_destroy(a_red);
     return res;
 }
+
+scalar matrix_det(matrix m) {
+  if (m.n2 != m.n1) return 0.;
+
+  scalar det = 1.;
+
+  matrix a_red = matrix_copy(m);
+
+  //descente
+  for (int i = 0; i < m.n1; i++) {
+      int j = i;
+      while ((j < m.n2) && (*matrix_get(a_red, j, i) == 0.)) {
+          j++;
+      }
+      if (j >= m.n2) return 0.;
+      echange_lignes(a_red, i, j);
+      det *= *matrix_get(a_red, i, i);
+      dilatation_ligne(a_red, i, 1/(*matrix_get(a_red, i, i)));
+      *matrix_get(a_red, i, i) = 1.;
+
+      for (int j = i+1; j < m.n2; j++) {
+          transvection(a_red, i, j, -(*matrix_get(a_red, j, i)));
+          *matrix_get(a_red, j, i) = 0.;
+      }
+  }
+
+  return det;
+}
