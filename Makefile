@@ -1,5 +1,5 @@
 # All main files to compile
-TARGET=main_matrix main_matrix_static test_matrix
+TARGET=main_matrix main_matrix_static test_matrix test
 
 # Main target: compile everything in $(TARGET)
 all: $(TARGET)
