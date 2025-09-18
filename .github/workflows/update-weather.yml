@@ -1,4 +1,4 @@
-            - name: Weather - Profile README
+ name: Weather - Profile README
   # You may pin to the exact commit or the version.
   # uses: bumb7ebee/weather-profile-actions@8362a51bb5d17260b67716f33a5cf7c5d3cfc1cc
   uses: bumb7ebee/weather-profile-actions@1.0.0
