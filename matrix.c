@@ -98,7 +98,7 @@ matrix matrix_multiply(matrix m, matrix n) {
     return res;
 }
 
-matrix matrix_scalar(matrix m, double lambda) {
+matrix matrix_scalar(matrix m, scalar lambda) {
     matrix res = matrix_create(m.n1, m.n2, 0.);
     for (int i = 0; i < m.n1; i++) {
         for (int j = 0; j < m.n2; j++) {
