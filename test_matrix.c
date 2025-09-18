@@ -56,4 +56,46 @@ UTEST(matrix_get, wrong) {
   ASSERT_TRUE(matrix_get(m, 0, 0)==NULL);
 }
 
+UTEST(add_matrix, simple) {
+  matrix m1 = matrix_create(2, 2, 1.);
+  matrix m2 = matrix_create(2, 2, 1.);
+  matrix m3 = matrix_add(m1, m2);
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      ASSERT_TRUE(*matrix_get(m3, i, j) == 2.);
+    }
+  }
+}
+
+UTEST(matrix_multiply, simple) {
+  matrix m1 = matrix_create(2, 2, 2.);
+  matrix m2 = matrix_create(2, 2, 2.);
+  matrix m3 = matrix_multiply(m1, m2);
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      ASSERT_TRUE(*matrix_get(m3, i, j) == 8.);
+    }
+  }
+}
+
+UTEST(matrix_scalar, simple) {
+  matrix m1 = matrix_create(2, 2, 2.);
+  matrix m2 = matrix_scalar(m1, 3.);
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      ASSERT_TRUE(*matrix_get(m2, i, j) == 6.);
+    }
+  }
+}
+UTEST(matrix_power, simple) {
+  matrix m1 = matrix_create(2, 2, 2.);
+  matrix m2 = matrix_power(m1, 2);
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      ASSERT_TRUE(*matrix_get(m2, i, j) == 8.);
+    }
+  }
+}
+
+
 UTEST_MAIN()  
