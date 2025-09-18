@@ -17,17 +17,22 @@ Returns the idendity matrix of size n.
 Return a pointer to the element in poisition (i, j) from the matrix m.
 
 ### matrix matrix_add(matrix m, matrix n)
-Adds the matrix m and the matrix m
+Adds the matrix m and the matrix m.
 
 ### void matrix_print(FILE *f, matrix m)
-Prints the matrix m in f
+Prints the matrix m in f.
 
 ### matrix matrix_multiply(matrix m, matrix n)
-Multiplies the matrix m and the matrix n
+Multiplies the matrix m and the matrix n.
 
 ### matrix matrix_scalar(matrix m, scalar lambda)
-Multiplies the matrix m by the scalar lambda
+Multiplies the matrix m by the scalar lambda.
 
-matrix matrix_power(matrix m, int n)
-matrix matrix_copy(matrix m)
-matrix matrix_inv(matrix m)
+### matrix matrix_power(matrix m, int n)
+Puts the matrix m to the power n. Note that n must be a positive integer.
+
+### matrix matrix_copy(matrix m)
+Copies the matrix m into a new matrix (so that the changes on m don't impact the new matrix).
+
+### matrix matrix_inv(matrix m)
+If it exists, returns the inverse of the matrix.
