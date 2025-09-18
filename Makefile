@@ -35,9 +35,9 @@ main_matrix_static: main_matrix.o libmatrix.a
 test_matrix: test_matrix.o libmatrix.a
 	$(CC) $(LDFLAGS) -static -o $@ $< $(LDLIBS)
 
-# main_matrix depends on libmatrix.so, the built-in Make rule will do the
-# rest
-main_matrix: libmatrix.so
+# main_matrix depends on libmatrix.so
+main_matrix: main_matrix.o libmatrix.so
+	$(CC) $(LDFLAGS) -o $@ $< $(LDLIBS) -Wl,-rpath,.
 
 # Remove all generated files except targets
 clean:
